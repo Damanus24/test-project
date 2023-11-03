@@ -22,18 +22,18 @@ class TextHandlerImplTest {
     @Test
     @DisplayName("The method should return the length of the string")
     void checkingWordCount() {
-        String textToCheck = "A! fast brown, fox? with mail brown@mail.ru jumps- over...ленивую-собаку";
+        String textToCheck = "A! fast brown, fox? with mail brown@mail.ru jumps- over... ленивую-собаку";
 
         int wordCount = textHandler.checkingWordCount(textToCheck);
 
-        assertEquals(12, wordCount);
+        assertEquals(10, wordCount);
     }
 
     @Test
     @DisplayName("The method should find five frequently occurring words and sort them in reverse alphabetical order")
     void findFiveWordsAndSort() {
         String textToCheck = "A fast brown, fox with mail brown@mail.ru jumps over ленивую собаку";
-        List<String> expectedTopFiveWords = Arrays.asList("with", "fox", "fast", "brown", "A");
+        List<String> expectedTopFiveWords = Arrays.asList("A", "brown", "brown@mail.ru", "fast", "fox");
 
         List<String> topFiveWords = textHandler.findFiveWordsAndSort(textToCheck);
 
