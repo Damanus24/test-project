@@ -46,7 +46,7 @@ public class TextHandlerImpl implements TextHandler {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
 
-        log.debug("Got the final result of the method \"findFiveWordsAndSort()\" without limit: \"" + mostFrequentWords + "\"");
+        log.debug("Got the final result of the method \"findFiveWordsAndSort()\": \"" + mostFrequentWords + "\"");
 
         return mostFrequentWords;
     }
