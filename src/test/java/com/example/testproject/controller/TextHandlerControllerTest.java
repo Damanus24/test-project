@@ -4,9 +4,14 @@ import com.example.testproject.model.dto.RequestText;
 import com.example.testproject.model.dto.ResponseText;
 import com.example.testproject.service.TextHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.NullSource;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -21,7 +26,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @WebMvcTest(TextHandlerController.class)
@@ -63,14 +67,14 @@ public class TextHandlerControllerTest {
 
 
         ResponseText actualResponse = objectMapper.readValue(result.getResponse().getContentAsString(), ResponseText.class);
-        assertEquals(expectedResponse, actualResponse);
+        Assertions.assertEquals(expectedResponse, actualResponse);
     }
 
-    @Test
+    @ParameterizedTest
     @DisplayName("Method testInvalidRequest() should handle invalid input")
-    public void testInvalidRequest() throws Exception {
+    @NullAndEmptySource
 
-        String inputText = "";  // Пустая строка
+    public void testInvalidRequest(String inputText) throws Exception {
         RequestText request = new RequestText(inputText);
 
 

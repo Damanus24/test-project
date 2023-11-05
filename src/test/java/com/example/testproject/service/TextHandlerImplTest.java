@@ -4,15 +4,24 @@ import com.example.testproject.service.impl.TextHandlerImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//@ExtendWith(MockitoExtension.class)
 class TextHandlerImplTest {
 
+//    @Mock
     private TextHandler textHandler;
+
+//    @InjectMocks
+//    private TextHandlerImpl textHandlerImpl; //заменить в методах на textHandlerImpl
 
     @BeforeEach
     public void setup() {

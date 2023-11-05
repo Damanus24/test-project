@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
 @Log4j
 @Service
 public class TextHandlerImpl implements TextHandler {
 
-    private static final String regex = "\\s+";
-    private static final String regex2 = "^[^\\p{IsLetter}0-9]+|[^\\p{IsLetter}0-9]+$";
+    private final String regex = "\\s+";
+
+    private final String regex2 = "^[^\\p{IsLetter}0-9]+|[^\\p{IsLetter}0-9]+$";
 
     @Override
     public int checkingWordCount(String text) {
